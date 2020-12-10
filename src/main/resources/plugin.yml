@@ -1,0 +1,12 @@
+name: MSchowek
+version: ${project.version}
+main: pl.memexurer.mschowek.SchowekPlugin
+api-version: 1.16
+authors: [ ElektrycznaPralkaPL ]
+description: duperele :D
+depend:
+  - CombatLogX
+  - PlaceholderAPI
+commands:
+  schowek:
+    alias: [twojastara]

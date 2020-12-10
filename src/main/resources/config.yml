@@ -1,0 +1,167 @@
+## Schowek - plugin na schowek, ale taki dojebany ze az cie z kapci wypierdoli.
+database: # passy do bazy danych mysql
+  ip: localhost # ip
+  port: 3306 # port
+  user: root # uzytkownik do db
+  password: '' # w moim przypadku nie posiadam ustawionego hasla
+  name: database # nazwa bazy danych (nie MySQL ani MariaDB)
+
+too_many: "&cPosiadales za duzo &7{ITEM}&cw ekwipunku, wiec &7{NUMBER} itemkow &cpolecialo do schowka."
+
+schowek:
+  0: # id itemu w schowku - najlepiej dawaj 0, 1, 2, 3 itd.
+    limit: 1 # maksymalna ilosc itemow
+    name: "zakletych zlotych jablek" # uzywane w wiadomosci `too_many`
+    item:
+      material: ENCHANTED_GOLDEN_APPLE # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+  1:
+    limit: 15
+    name: "zlotych jablek"
+    item:
+      material: GOLDEN_APPLE # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+      # usunalem tutaj to co nie potrzebne
+  2:
+    limit: 1
+    name: "totemow niesmiertelnosci"
+    item:
+      material: TOTEM_OF_UNDYING
+  3:
+    limit: 1
+    name: "owocow horusa"
+    item:
+      material: CHORUS_FRUIT
+  4:
+    limit: 4
+    name: "perelek"
+    item:
+      material: ENDER_PEARL
+
+inventory:
+  title: "Schowek"
+  size: 3 # 3 * 9 = 27 slotow
+  slots:
+    0:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    1:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    2:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    3:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    4:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    5:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    6:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    7:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    8:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    9:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    10:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    16:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    17:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    18:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    19:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    20:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    21:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    23:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    24:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    25:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    26:
+      item:
+        material: BLACK_STAINED_GLASS_PANE
+        name: "&e"
+    11:
+      id: 1 # nie dawaj 0, bo sie popsuje
+      item:
+        material: ENCHANTED_GOLDEN_APPLE
+        lore:
+          - "&7Limit: &c%schowek_limit_0%"
+          - "&7W schowku: &c%schowek_count_0%"
+    12:
+      id: 2
+      item:
+        material: GOLDEN_APPLE
+        lore:
+          - "&7Limit: &c%schowek_limit_1%"
+          - "&7W schowku: &c%schowek_count_1%"
+    13:
+      id: 3
+      item:
+        material: TOTEM_OF_UNDYING
+        lore:
+          - "&7Limit: &c%schowek_limit_2%"
+          - "&7W schowku: &c%schowek_count_2%"
+    14:
+      id: 4
+      item:
+        material: CHORUS_FRUIT
+        lore:
+          - "&7Limit: &c%schowek_limit_3%"
+          - "&7W schowku: &c%schowek_count_3%"
+    15:
+      id: 5
+      item:
+        material: ENDER_PEARL
+        lore:
+          - "&7Limit: &c%schowek_limit_4%"
+          - "&7W schowku: &c%schowek_count_4%"
+    22:
+      id: 10 # odbierz wszystko
+      item:
+        material: MAGMA_CREAM
+        name: "&aOdbierz wszystko"
+
