@@ -24,7 +24,7 @@ public class SqlUserManager extends BulkUserManager {
             while (set.next())
                 super.userMap.put(
                         UUID.fromString(set.getString("PlayerUniqueId")),
-                        new BulkUserDataModel(BinaryUtils.readIntegerMap(set.getBytes("Schoweks")))
+                        new BulkUserDataModel(BinaryUtils.readIntegerMap(set.getBytes("Schoweks"))))
                 );
         } catch (SQLException | IOException ex) {
             ex.printStackTrace();

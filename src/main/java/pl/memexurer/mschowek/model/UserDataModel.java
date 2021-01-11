@@ -18,8 +18,10 @@ public interface UserDataModel {
 
     default void checkItems(Player player, SchowekItem item) {
         int itemCount = item.getItemCount(player);
-        if (itemCount > item.getLimit()) {
-            int takeItems = itemCount - item.getLimit();
+        int itemLimit = getItemLimit(item.getItemId()) == 0 ? item.getLimit() : getItemLimit(item.getItemId());
+
+        if (itemCount > itemLimit) {
+            int takeItems = itemCount - itemLimit;
             player.sendMessage(Configuration.getInstance().getTooMany(item.getItemName(), takeItems));
 
             ItemStack removeItem = item.getItemStack();

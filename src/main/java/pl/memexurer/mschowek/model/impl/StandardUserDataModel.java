@@ -18,8 +18,6 @@ public class StandardUserDataModel implements UserDataModel {
 
     @Override
     public int getItemCount(int id) {
-        if (!itemCount.containsKey(id))
-            return 0;
-        return itemCount.get(id);
+         return itemCount.getOrDefault(id, 0);
     }
 }
