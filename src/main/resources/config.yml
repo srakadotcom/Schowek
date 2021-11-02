@@ -43,92 +43,93 @@ inventory:
   slots:
     0:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     1:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     2:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     3:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     4:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     5:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     6:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     7:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     8:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     9:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     10:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     16:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     17:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     18:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     19:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     20:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     21:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     23:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     24:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     25:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     26:
       item:
-        material: BLACK_STAINED_GLASS_PANE
+        material: STAINED_GLASS_PANE
         name: "&e"
     11:
       id: 1 # nie dawaj 0, bo sie popsuje
       item:
-        material: ENCHANTED_GOLDEN_APPLE
+        material: GOLDEN_APPLE
+          durability: 1
         lore:
           - "&7Limit: &c%schowek_limit_0%"
           - "&7W schowku: &c%schowek_count_0%"
@@ -142,14 +143,15 @@ inventory:
     13:
       id: 3
       item:
-        material: TOTEM_OF_UNDYING
+        material: EMERALD_BLOCK
         lore:
           - "&7Limit: &c%schowek_limit_2%"
           - "&7W schowku: &c%schowek_count_2%"
     14:
       id: 4
       item:
-        material: CHORUS_FRUIT
+        material: TNT
+        name: "&8Rzucane TNT"
         lore:
           - "&7Limit: &c%schowek_limit_3%"
           - "&7W schowku: &c%schowek_count_3%"
