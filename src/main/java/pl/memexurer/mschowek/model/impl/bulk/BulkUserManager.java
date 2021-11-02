@@ -17,4 +17,6 @@ public abstract class BulkUserManager extends UserManager<BulkUserDataModel> {
     }
 
     public abstract void save();
+
+    public abstract void shutdown();
 }

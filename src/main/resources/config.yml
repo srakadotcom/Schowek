@@ -7,29 +7,30 @@ database: # passy do bazy danych mysql
   name: database # nazwa bazy danych (nie MySQL ani MariaDB)
 
 too_many: "&cPosiadales za duzo &7{ITEM}&cw ekwipunku, wiec &7{NUMBER} itemkow &cpolecialo do schowka."
+limit: "&cOsiagnales limit itemow w schowku!"
 
 schowek:
   0: # id itemu w schowku - najlepiej dawaj 0, 1, 2, 3 itd.
-    limit: 1 # maksymalna ilosc itemow
+    limit: 3 # maksymalna ilosc itemow
     name: "zakletych zlotych jablek" # uzywane w wiadomosci `too_many`
     item:
-      material: ENCHANTED_GOLDEN_APPLE # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+      material: GOLDEN_APPLE # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
+      durability: 1
   1:
-    limit: 15
+    limit: 10
     name: "zlotych jablek"
     item:
-      material: GOLDEN_APPLE # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html
-      # usunalem tutaj to co nie potrzebne
+      material: GOLDEN_APPLE
   2:
-    limit: 1
-    name: "totemow niesmiertelnosci"
+    schowekLimt: 384
     item:
-      material: TOTEM_OF_UNDYING
+      material: EMERALD_BLOCK
   3:
     limit: 1
-    name: "owocow horusa"
+    name: "rzucanych TNT"
     item:
-      material: CHORUS_FRUIT
+      material: TNT
+      name: "&8Rzucane TNT"
   4:
     limit: 4
     name: "perelek"

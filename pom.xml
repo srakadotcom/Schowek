@@ -72,7 +72,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.16.4-R0.1-SNAPSHOT</version>
+            <version>1.8.8-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -82,23 +82,15 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>pl.memexurer</groupId>
-            <artifactId>database</artifactId>
-            <version>1.4.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.SirBlobman.combatlogx</groupId>
-            <artifactId>CombatLogX-API</artifactId>
-            <version>9.0.0.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/libs/CombatLogX.jar</systemPath>
-        </dependency>
-        <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
             <version>LATEST</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.0.0</version>
         </dependency>
     </dependencies>
 </project>

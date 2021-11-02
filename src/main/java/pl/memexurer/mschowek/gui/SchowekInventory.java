@@ -42,7 +42,6 @@ public class SchowekInventory implements InventoryHolder {
         InventoryItem inventoryItem = itemMap.get(e.getRawSlot());
         if (inventoryItem == null) return;
 
-
         e.setCancelled(true);
         if(inventoryItem.getItemId() == -1) return;
 
@@ -85,6 +84,12 @@ public class SchowekInventory implements InventoryHolder {
             int count = item.getItemCount(player);
             if (count == 0)
                 return;
+
+            if(count > item.getSchowekLimit())
+            {
+                player.sendMessage(Configuration.getInstance().getLimit());
+                return;
+            }
 
             ItemStack itemStack = item.getItemStack();
             itemStack.setAmount(count);

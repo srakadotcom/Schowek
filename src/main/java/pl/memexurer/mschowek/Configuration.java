@@ -21,6 +21,7 @@ public class Configuration {
     private final List<SchowekItem> schowekItemList = new ArrayList<>();
 
     private String tooMany;
+    private String limit;
     private SchowekInventory inventory;
 
     public static Configuration getInstance() {
@@ -33,6 +34,7 @@ public class Configuration {
 
     public void loadConfiguration(ConfigurationSection section) {
         this.tooMany = fixColor(section.getString("too_many"));
+        this.limit = fixColor(section.getString("limit"));
 
         ConfigurationSection schowekItemSection = section.getConfigurationSection("schowek");
         for (String str : schowekItemSection.getKeys(false)) {
@@ -41,6 +43,7 @@ public class Configuration {
             schowekItemList.add(new SchowekItem(
                     parseItem(itemSection.getConfigurationSection("item")),
                     itemSection.getInt("limit"),
+                    itemSection.getInt("schowekLimit"),
                     fixColor(itemSection.getString("name")),
                     Integer.parseInt(str)
             ));
@@ -59,7 +62,7 @@ public class Configuration {
     }
 
     private ItemStack parseItem(ConfigurationSection section) {
-        ItemStack itemStack = new ItemStack(Material.matchMaterial(section.getString("material")));
+        ItemStack itemStack = new ItemStack(Material.matchMaterial(section.getString("material")), 1, (short) section.getInt("durability", 0));
         ItemMeta itemMeta = itemStack.getItemMeta();
 
         String name = section.getString("name");
@@ -104,5 +107,9 @@ public class Configuration {
 
     public SchowekInventory getSchowekInventory() {
         return inventory;
+    }
+
+    public String getLimit() {
+        return limit;
     }
 }
