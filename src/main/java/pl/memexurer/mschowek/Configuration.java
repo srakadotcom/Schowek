@@ -1,19 +1,18 @@
 package pl.memexurer.mschowek;
 
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import pl.memexurer.mschowek.gui.InventoryItem;
 import pl.memexurer.mschowek.gui.SchowekInventory;
 import pl.memexurer.mschowek.schowek.SchowekItem;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Configuration {
@@ -41,10 +40,10 @@ public class Configuration {
             ConfigurationSection itemSection = schowekItemSection.getConfigurationSection(str);
 
             schowekItemList.add(new SchowekItem(
-                    parseItem(itemSection.getConfigurationSection("item")),
+                    parse(itemSection.getString("item")),
                     itemSection.getInt("limit"),
                     itemSection.getInt("schowekLimit"),
-                    fixColor(itemSection.getString("name")),
+                    itemSection.getString("name") == null ? null : fixColor(itemSection.getString("name")),
                     Integer.parseInt(str)
             ));
         }
@@ -111,5 +110,74 @@ public class Configuration {
 
     public String getLimit() {
         return limit;
+    }
+
+    public static ItemStack parse(String stack) {
+        String[] stackArgs = stack.split(";");
+        ItemStack itemStack;
+        switch (stackArgs[0]) {
+            case "WATER_BOTTLE":
+                itemStack = new ItemStack(Material.POTION);
+                break;
+            case "ENCHANTED_GOLDEN_APPLE":
+                itemStack = new ItemStack(Material.GOLDEN_APPLE);
+                itemStack.setDurability((short) 1);
+                break;
+            case "KURWA_KRIPER":
+                itemStack = new ItemStack(Material.MONSTER_EGG);
+                itemStack.setDurability((short) 50);
+                break;
+            default:
+                if(stackArgs[0].startsWith("POTKA-"))
+                {
+                    itemStack = new ItemStack(Material.POTION, 1, Short.parseShort(stackArgs[0].substring(6)));
+                } else
+                    itemStack = new ItemStack(Material.valueOf(stackArgs[0]));
+                break;
+        }
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        for (int i = 0; i < stackArgs.length - 1; i++) {
+            switch (i) {
+                case 0:
+                    itemStack.setAmount(Integer.parseInt(stackArgs[1]));
+                    break;
+                case 1:
+                    String stackName = stackArgs[2];
+                    boolean isLore = false;
+                    if(stackName.startsWith("DogeLore")) {
+                        stackName = stackName.substring(8);
+                        isLore = true;
+                    }
+
+                    boolean hideEnchant = false;
+                    if(stackName.startsWith("X")) {
+                        stackName = stackName.substring(1);
+                        hideEnchant = true;
+                    }
+
+                    if(hideEnchant)
+                        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+                    if(!isLore)
+                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', stackName));
+                    else
+                    {
+                        String[] splitted = stackName.split(":");
+                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', splitted[0]));
+                        itemMeta.setLore(Arrays.stream(splitted[1].split("'"))
+                                .map(text -> ChatColor.translateAlternateColorCodes('&', text))
+                                .collect(Collectors.toList()));
+                    }
+                    break;
+                case 2:
+                    String[] enchantments = StringUtils.split(stackArgs[3], ":");
+                    for (String enchantment : enchantments) {
+                        itemMeta.addEnchant(Enchantment.getByName(enchantment.substring(1)), Integer.parseInt("" + enchantment.charAt(0)), true);
+                    }
+                    break;
+            }
+        }
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
     }
 }

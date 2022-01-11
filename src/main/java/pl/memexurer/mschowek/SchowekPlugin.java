@@ -38,11 +38,12 @@ public final class SchowekPlugin extends JavaPlugin implements Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
-                for(Player player: Bukkit.getOnlinePlayers())
+                for(Player player: Bukkit.getOnlinePlayers()) {
                     for (SchowekItem item : Configuration.getInstance().getSchowekItemList())
                         userManager.getUser(player).checkItems(player, item);
+                }
             }
-        }.runTaskTimerAsynchronously(this, 0L, 20L);
+        }.runTaskTimer(this, 0L, 20L);
     }
 
     @Override

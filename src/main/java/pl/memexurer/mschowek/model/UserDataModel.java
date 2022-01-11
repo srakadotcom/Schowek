@@ -17,7 +17,8 @@ public interface UserDataModel {
     default void removeItemCount(int id, int i) { setItemCount(id, getItemCount(id) - i);}
 
     default void checkItems(Player player, SchowekItem item) {
-        int itemCount = item.getItemCount(player);
+        if(item.getLimit() == 0) return;
+        int itemCount = item.countItems(player);
 
         if (itemCount > item.getLimit()) {
             int takeItems = itemCount - item.getLimit();

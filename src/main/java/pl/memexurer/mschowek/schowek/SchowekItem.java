@@ -37,7 +37,7 @@ public class SchowekItem {
         return itemId;
     }
 
-    public int getItemCount(Player player) {
+    public int countItems(Player player) {
         return Arrays.stream(player.getInventory().getContents())
                 .filter(Objects::nonNull)
                 .filter(item -> item.isSimilar(itemStack))

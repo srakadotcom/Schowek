@@ -6,7 +6,7 @@ database: # passy do bazy danych mysql
   password: '' # w moim przypadku nie posiadam ustawionego hasla
   name: database # nazwa bazy danych (nie MySQL ani MariaDB)
 
-too_many: "&cPosiadales za duzo &7{ITEM}&cw ekwipunku, wiec &7{NUMBER} itemkow &cpolecialo do schowka."
+too_many: "&cPosiadales za duzo &7{ITEM} &cw ekwipunku, wiec &7{NUMBER} itemkow &cpolecialo do schowka."
 limit: "&cOsiagnales limit itemow w schowku!"
 
 schowek:
@@ -22,7 +22,7 @@ schowek:
     item:
       material: GOLDEN_APPLE
   2:
-    schowekLimt: 384
+    schowekLimit: 384
     item:
       material: EMERALD_BLOCK
   3:
@@ -58,9 +58,11 @@ inventory:
         material: STAINED_GLASS_PANE
         name: "&e"
     4:
+      id: 3
       item:
-        material: STAINED_GLASS_PANE
-        name: "&e"
+        material: EMERALD_BLOCK
+        lore:
+          - "&7W schowku: &c%schowek_count_2%"
     5:
       item:
         material: STAINED_GLASS_PANE
@@ -129,7 +131,7 @@ inventory:
       id: 1 # nie dawaj 0, bo sie popsuje
       item:
         material: GOLDEN_APPLE
-          durability: 1
+        durability: 1
         lore:
           - "&7Limit: &c%schowek_limit_0%"
           - "&7W schowku: &c%schowek_count_0%"
@@ -141,12 +143,9 @@ inventory:
           - "&7Limit: &c%schowek_limit_1%"
           - "&7W schowku: &c%schowek_count_1%"
     13:
-      id: 3
       item:
-        material: EMERALD_BLOCK
-        lore:
-          - "&7Limit: &c%schowek_limit_2%"
-          - "&7W schowku: &c%schowek_count_2%"
+        material: STAINED_GLASS_PANE
+        name: "&e"
     14:
       id: 4
       item:
